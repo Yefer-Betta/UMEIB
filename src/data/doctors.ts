@@ -49,7 +49,7 @@ No te acostumbres a vivir con dolor. ¡Tu bienestar es nuestra misión y estamos
   {
     id: 3,
     name: "Dra. Ada Gabriela Hernández",
-    photo: "/images/doctors/dra-ada-hernandez.png",
+    photo: "/images/doctors/dra-ada-gabriela-hern-ndez.png",
     bio: `Salud vascular y estética: Un dúo perfecto para tus piernas. ✨
 En UMEIB (Unidad Médica de Atención Inmediata), entendemos que cuidar de ti va más allá de un diagnóstico. Por eso, hemos reunido a los mejores especialistas para ofrecerte una atención integral, desde un chequeo pediátrico hasta ese tratamiento estético que tanto deseas. 👨‍⚕️👩‍⚕️💖
 
@@ -84,7 +84,7 @@ No dejes tu bienestar para después. Tu salud es nuestra prioridad y estamos má
   {
     id: 5,
     name: "Dra. Leymar Briceño",
-    photo: "/images/doctors/dra-leymar-briceno.png",
+    photo: "/images/doctors/dra-leymar-brice-o.png",
     bio: `Tu bienestar Otorrinolaringológico, bajo la atención de una experta. 🏥
 En UMEIB, entendemos que respirar, escuchar y hablar bien son fundamentales para tu vida. Por eso, te ofrecemos la atención experta de la Dra. Leymar Briceño, especialista en patologías de oído, nariz y garganta. Diagnóstico preciso, tecnología avanzada y un trato cercano para tu tranquilidad.
 
@@ -101,7 +101,7 @@ Tu salud es lo más importante y estamos más cerca de ti.
   {
     id: 6,
     name: "Dra. Rosanna González",
-    photo: "/images/doctors/dra-rosanna-gonzalez.png",
+    photo: "/images/doctors/dra-rosanna-gonz-lez.png",
     bio: `El dolor no tiene por qué ser parte de tu rutina. Ya sea por una lesión deportiva, el desgaste natural de las articulaciones o una emergencia, la Dra. Rosanna González está lista para brindarte una atención especializada en traumatología.
 
 En UMEIB, nos enfocamos en que recuperes tu ritmo de vida con tratamientos avanzados como la viscosuplementación y cirugías de alta precisión.
@@ -120,7 +120,7 @@ En UMEIB, nos enfocamos en que recuperes tu ritmo de vida con tratamientos avanz
   {
     id: 7,
     name: "Dra. Lenny Mujica",
-    photo: "/images/doctors/dr-lenny-mujica.png",
+    photo: "/images/doctors/lenny-mujica.png",
     bio: `Sabemos que lo más importante para ti es el bienestar y crecimiento sano de tus pequeños. Por eso, la Dra. Lenny Mujica (Pediatra - Puericultor) te ofrece una atención integral y humana en cada etapa de su desarrollo. 👶✨
 
 Nuestros servicios incluyen:
@@ -144,7 +144,7 @@ Ofrecemos la comodidad que necesitas:
   {
     id: 8,
     name: "Lic. Eurelbys Juárez",
-    photo: "/images/doctors/lic-eurelbys-juarez.png",
+    photo: "/images/doctors/lic-eurelbys-ju-rez.png",
     bio: `¡Tus pies merecen el mejor cuidado profesional! 👣✨
 
 Muchas veces olvidamos que nuestros pies son la base de todo nuestro movimiento. En UMEIB, la Lic. Eurelbys Juárez te ofrece una consulta especializada de quiropedia para que camines con total comodidad y salud.
@@ -164,7 +164,7 @@ Desde tratamientos láser para hongos hasta la solución definitiva para uñas e
   {
     id: 9,
     name: "Luisa Delgado",
-    photo: "/images/doctors/df-luisa-delgado.png",
+    photo: "/images/doctors/luisa-delgado.png",
     bio: `La prevención y la atención oportuna son las claves para una vida plena. La Dra. Luisa Delgado, especialista en Cirugía General y Laparoscópica, te ofrece una atención médica integral, segura y de alta calidad para cuidar de ti y de los tuyos.
 
 Desde una evaluación inicial hasta procedimientos especializados, su prioridad es tu bienestar y pronta recuperación.

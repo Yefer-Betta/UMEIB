@@ -1,6 +1,7 @@
 ---
 import Breadcrumbs from './Breadcrumbs.astro';
 import type { Specialty } from '../data/specialties';
+import { getDoctorsBySpecialty } from '../data/doctors';
 
 interface Props {
   specialty: Specialty;
@@ -42,6 +43,27 @@ const { specialty } = Astro.props;
           Consultar Disponibilidad
         </a>
       </div>
+
+      <!-- Doctors -->
+      {
+        getDoctorsBySpecialty(specialty.slug).length > 0 && (
+          <div class="mt-10 animate-fade-in-up delay-300">
+            <div class="flex flex-wrap items-center gap-6">
+              {getDoctorsBySpecialty(specialty.slug).map(doctor => (
+                <div class="flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-xl px-4 py-3 border border-white/10">
+                  <img src={doctor.photo} alt={doctor.name} class="h-14 w-14 object-cover" />
+                  <div>
+                    <p class="text-sm font-bold text-white">{doctor.name}</p>
+                    {doctor.contact.phone && (
+                      <a href={`tel:${doctor.contact.phone}`} class="text-xs text-primary hover:underline">{doctor.contact.phone}</a>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )
+      }
     </div>
   </div>
 </section>

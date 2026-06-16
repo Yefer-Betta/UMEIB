@@ -1,6 +1,5 @@
 ---
 import type { Specialty } from '../data/specialties';
-import { getDoctorsBySpecialty } from '../data/doctors';
 
 interface Props {
   specialty: Specialty;
@@ -26,57 +25,31 @@ const { specialty } = Astro.props;
         </div>
       </div>
 
-  <div class="lg:col-span-2">
-    <div class="bg-surface-alt rounded-2xl p-6 sm:p-8 border border-gray-100 sticky top-24">
-      <h3 class="text-lg font-bold text-text-heading mb-6 flex items-center gap-2">
-        <svg class="w-5 h-5 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-        Beneficios
-      </h3>
-      <ul class="space-y-4">
-        {
-          specialty.benefits.map((benefit) => (
-            <li class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-primary shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              <span class="text-sm sm:text-base text-text-heading/85">{benefit}</span>
-            </li>
-          ))
-        }
-</ul>
-
-          <!-- Doctors for this specialty -->
-          {getDoctorsBySpecialty(specialty.slug).length > 0 && (
-            <div class="mt-8">
-              <h4 class="text-lg font-bold text-text-heading mb-4">Nuestro equipo</h4>
-              <div class="grid gap-4">
-                {getDoctorsBySpecialty(specialty.slug).map(doctor => (
-                  <div class="bg-white p-4 rounded-lg shadow-sm flex items-center space-x-4">
-                    <img src={doctor.photo} alt={doctor.name} class="h-12 w-12 rounded-full object-cover" />
-                    <div>
-                      <p class="font-medium text-text-heading">{doctor.name}</p>
-                      <p class="text-sm text-text-heading/75 line-clamp-2">{doctor.bio.split('\n')[0]}</p>
-                      {doctor.contact.phone && (
-                        <a href={`tel:${doctor.contact.phone}`} class="text-sm text-primary hover:underline">{doctor.contact.phone}</a>
-                      )}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
+      <div class="lg:col-span-2">
+        <div class="bg-surface-alt rounded-2xl p-6 sm:p-8 border border-gray-100 sticky top-24">
+          <h3 class="text-lg font-bold text-text-heading mb-6 flex items-center gap-2">
+            <svg class="w-5 h-5 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            Beneficios
+          </h3>
+          <ul class="space-y-4">
+            {specialty.benefits.map((benefit) => (
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-primary shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="text-sm sm:text-base text-text-heading/85">{benefit}</span>
+              </li>
+            ))}
+          </ul>
 
           <div class="mt-8 pt-6 border-t border-gray-200">
-        <p class="text-xs text-text-heading/60 mb-3">Compartir esta especialidad</p>
-        <div class="flex items-center gap-2">
-          <a href={`https://wa.me/?text=${encodeURIComponent(`${specialty.name} en UMEIB Barquisimeto - ${specialty.heroSubtitle}`)}`} target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-[#25D366]/10 hover:bg-[#25D366] flex items-center justify-center text-[#25D366] hover:text-white transition-all duration-300" aria-label="Compartir en WhatsApp">
-            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
-          </a>
-          <a href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(`https://umeib.com/especialidades/${specialty.slug}`)}`} target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-blue-500/10 hover:bg-blue-500 flex items-center justify-center text-blue-500 hover:text-white transition-all duration-300" aria-label="Compartir en Facebook">
-            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
+            <p class="text-xs text-text-heading/60 mb-3">Compartir esta especialidad</p>
+            <div class="flex items-center gap-2">
+              <a href={`https://wa.me/?text=${encodeURIComponent(`${specialty.name} en UMEIB Barquisimeto - ${specialty.heroSubtitle}`)}`} target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-[#25D366]/10 hover:bg-[#25D366] flex items-center justify-center text-[#25D366] hover:text-white transition-all duration-300" aria-label="Compartir en WhatsApp">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
+              </a>
+              <a href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(`https://umeib.com/especialidades/${specialty.slug}`)}`} target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-blue-500/10 hover:bg-blue-500 flex items-center justify-center text-blue-500 hover:text-white transition-all duration-300" aria-label="Compartir en Facebook">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+              </a>
+            </div>
           </div>
         </div>
       </div>
