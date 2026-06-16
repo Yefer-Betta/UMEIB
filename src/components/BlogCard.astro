@@ -1,0 +1,34 @@
+---
+import type { BlogPost } from '../data/blog';
+
+interface Props {
+  post: BlogPost;
+}
+
+const { post } = Astro.props;
+---
+
+<a href={`/blog/${post.slug}`} class="group bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+  <div class="aspect-[16/9] bg-surface-alt flex items-center justify-center overflow-hidden">
+    <svg class="w-16 h-16 text-primary/30 group-hover:scale-110 transition-transform duration-500" viewBox="0 0 48 48" fill="none">
+      <rect x="6" y="8" width="36" height="32" rx="4" stroke="currentColor" stroke-width="2.5"/>
+      <path d="M16 20h16M16 26h12M16 32h8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+    </svg>
+  </div>
+  <div class="p-5 sm:p-6">
+    <div class="flex items-center gap-3 mb-3">
+      <span class="text-xs font-medium text-primary bg-primary/5 px-3 py-1 rounded-full">{post.category}</span>
+      <span class="text-xs text-text-heading/60">{post.readTime}</span>
+    </div>
+    <h3 class="text-base sm:text-lg font-bold text-text-heading leading-snug group-hover:text-primary transition-colors mb-2">
+      {post.title}
+    </h3>
+    <p class="text-sm text-text-heading/75 leading-relaxed line-clamp-2">
+      {post.excerpt}
+    </p>
+    <div class="flex items-center gap-2 mt-4 text-primary text-sm font-semibold group-hover:gap-3 transition-all">
+      Leer artículo
+      <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+    </div>
+  </div>
+</a>

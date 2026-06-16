@@ -1,0 +1,167 @@
+---
+import { specialties } from '../data/specialties';
+---
+
+<header class="fixed top-0 inset-x-0 z-40 bg-white/80 backdrop-blur-md border-b border-gray-100">
+  <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+    <a href="/" class="flex items-center shrink-0">
+      <img src="/images/logo/logo.svg" alt="UMEIB — Unidad Médica de Atención Inmediata" class="h-8 sm:h-9 w-auto" width="360" height="120" />
+    </a>
+
+    <div class="hidden md:flex items-center gap-6 lg:gap-8">
+      <a href="/" class="text-sm font-medium text-text-heading/85 hover:text-primary transition-colors">Inicio</a>
+
+      <div class="relative group" data-dropdown>
+        <button class="flex items-center gap-1 text-sm font-medium text-text-heading/85 hover:text-primary transition-colors cursor-default" aria-haspopup="true" aria-expanded="false" data-dropdown-button>
+          Especialidades
+          <svg class="w-3.5 h-3.5 mt-0.5 transition-transform duration-200" data-dropdown-arrow viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="absolute top-full right-0 pt-2 w-[500px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 translate-y-2 group-hover:translate-y-0" data-dropdown-menu role="menu" aria-label="Especialidades">
+          <div class="bg-white rounded-2xl shadow-xl border border-gray-100">
+            <div class="grid grid-cols-2 gap-1 p-3 max-h-[420px] overflow-y-auto">
+            {specialties.map((s) => (
+              <a
+                href={`/especialidades/${s.slug}`}
+                class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-surface-alt transition-colors text-sm"
+                role="menuitem"
+              >
+                <div class="w-7 h-7 text-primary shrink-0 [&_svg]:w-full [&_svg]:h-full" set:html={s.icon}>
+                </div>
+                <span class="font-medium text-text-heading/80 hover:text-text-heading">{s.name}</span>
+              </a>
+            ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a href="/blog" class="text-sm font-medium text-text-heading/85 hover:text-primary transition-colors">Blog</a>
+      <a href="/contacto" class="text-sm font-medium text-text-heading/85 hover:text-primary transition-colors">Contacto</a>
+      <a href="https://wa.me/584245212582" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-colors">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Agendar Consulta
+      </a>
+    </div>
+
+    <button id="menu-btn" class="md:hidden cursor-pointer p-2" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu" data-menu-button>
+      <svg class="w-6 h-6 text-text-heading" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <path d="M4 6h16" data-menu-line-1/>
+        <path d="M4 12h16" data-menu-line-2/>
+        <path d="M4 18h16" data-menu-line-3/>
+      </svg>
+    </button>
+  </nav>
+
+  <div id="mobile-menu" class="md:hidden hidden absolute top-16 inset-x-0 bg-white border-b border-gray-100 shadow-lg max-h-[80vh] overflow-y-auto" data-mobile-menu role="navigation" aria-label="Menú de navegación">
+    <div class="flex flex-col px-4 py-4 gap-3">
+      <a href="/" class="text-sm font-medium text-text-heading/85 hover:text-primary py-2 transition-colors" data-menu-close>Inicio</a>
+
+      <div class="border-b border-gray-100 pb-2 mb-2">
+        <p class="text-xs font-bold text-text-heading/60 uppercase tracking-wider px-2 py-2">Especialidades</p>
+        <div class="grid grid-cols-2 gap-1">
+          {specialties.map((s) => (
+            <a href={`/especialidades/${s.slug}`} class="flex items-center gap-2 px-2 py-2 rounded-lg hover:bg-surface-alt transition-colors text-sm" data-menu-close>
+              <div class="w-5 h-5 text-primary shrink-0 [&_svg]:w-full [&_svg]:h-full" set:html={s.icon}></div>
+              <span class="text-text-heading/80">{s.name}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <a href="/blog" class="text-sm font-medium text-text-heading/85 hover:text-primary py-2 transition-colors" data-menu-close>Blog</a>
+      <a href="/contacto" class="text-sm font-medium text-text-heading/85 hover:text-primary py-2 transition-colors" data-menu-close>Contacto</a>
+      <a href="https://wa.me/584245212582" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-dark text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-colors" data-menu-close>
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Agendar Consulta
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  (function () {
+    // Dropdown
+    const dropdown = document.querySelector('[data-dropdown]');
+    const btn = dropdown?.querySelector('[data-dropdown-button]');
+    const menu = dropdown?.querySelector('[data-dropdown-menu]');
+    const arrow = dropdown?.querySelector('[data-dropdown-arrow]');
+
+    function openDropdown() {
+      if (!menu || !btn || !arrow) return;
+      menu.classList.remove('opacity-0', 'invisible');
+      menu.classList.add('opacity-100', 'visible');
+      btn.setAttribute('aria-expanded', 'true');
+      arrow.style.transform = 'rotate(180deg)';
+    }
+
+    function closeDropdown() {
+      if (!menu || !btn || !arrow) return;
+      menu.classList.add('opacity-0', 'invisible');
+      menu.classList.remove('opacity-100', 'visible');
+      btn.setAttribute('aria-expanded', 'false');
+      arrow.style.transform = 'rotate(0deg)';
+    }
+
+    btn?.addEventListener('click', () => {
+      if (btn.getAttribute('aria-expanded') === 'true') closeDropdown();
+      else openDropdown();
+    });
+
+    btn?.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowDown' || e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openDropdown();
+        const first = menu?.querySelector('[role="menuitem"]');
+        first?.focus();
+      }
+    });
+
+    dropdown?.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeDropdown();
+        btn?.focus();
+      }
+    });
+
+    dropdown?.addEventListener('focusout', (e) => {
+      if (!dropdown.contains(e.relatedTarget)) {
+        closeDropdown();
+      }
+    });
+
+    // Mobile menu
+    const menuBtn = document.querySelector('[data-menu-button]');
+    const mobileMenu = document.querySelector('[data-mobile-menu]');
+
+    function openMenu() {
+      if (!mobileMenu || !menuBtn) return;
+      mobileMenu.classList.remove('hidden');
+      mobileMenu.classList.add('animate-slide-down');
+      menuBtn.setAttribute('aria-expanded', 'true');
+      menuBtn.setAttribute('aria-label', 'Cerrar menú');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+      if (!mobileMenu || !menuBtn) return;
+      mobileMenu.classList.add('hidden');
+      mobileMenu.classList.remove('animate-slide-down');
+      menuBtn.setAttribute('aria-expanded', 'false');
+      menuBtn.setAttribute('aria-label', 'Abrir menú');
+      document.body.style.overflow = '';
+    }
+
+    menuBtn?.addEventListener('click', () => {
+      if (menuBtn.getAttribute('aria-expanded') === 'true') closeMenu();
+      else openMenu();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeMenu();
+    });
+
+    document.querySelectorAll('[data-menu-close]').forEach((el) => {
+      el.addEventListener('click', closeMenu);
+    });
+  })();
+</script>

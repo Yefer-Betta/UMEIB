@@ -1,0 +1,41 @@
+---
+import { specialties } from '../data/specialties';
+---
+
+<section id="especialidades" class="bg-surface-alt py-16 sm:py-20 lg:py-24">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12 sm:mb-16">
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-heading tracking-tight">
+        Nuestras Especialidades
+      </h2>
+      <p class="mt-4 text-base sm:text-lg text-text-heading/75 max-w-2xl mx-auto">
+        Contamos con un equipo multidisciplinario de profesionales para brindarte atención integral en cada etapa de tu vida.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-5">
+      {
+        specialties.map((s, i) => (
+          <a
+            href={`/especialidades/${s.slug}`}
+            class="group bg-white rounded-xl p-4 sm:p-5 lg:p-6 shadow-sm border border-gray-100 hover:border-primary/40 hover:-translate-y-1 hover:shadow-lg active:scale-[0.97] transition-all duration-300"
+            style={`animation: fade-in-up 0.5s ease-out ${i * 0.03}s forwards; opacity: 0;`}
+          >
+            <div class="w-11 h-11 sm:w-13 sm:h-13 lg:w-14 lg:h-14 mb-3 sm:mb-4 [&_svg]:w-full [&_svg]:h-full [&_svg]:text-primary group-hover:[&_svg]:scale-110 [&_svg]:transition-all [&_svg]:duration-300 [&_svg]:ease-out" set:html={s.icon}>
+            </div>
+            <h3 class="text-xs sm:text-sm lg:text-base font-semibold text-text-heading leading-tight">
+              {s.name}
+            </h3>
+          </a>
+        ))
+      }
+    </div>
+
+    <div class="text-center mt-10 animate-fade-in-up">
+      <a href="/contacto" class="inline-flex items-center gap-2 text-primary hover:text-primary-dark font-semibold transition-colors text-sm sm:text-base">
+        ¿No encuentras lo que buscas? Contáctanos
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>

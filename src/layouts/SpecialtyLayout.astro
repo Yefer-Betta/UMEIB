@@ -1,0 +1,23 @@
+---
+import Layout from './Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import ContactFooter from '../components/ContactFooter.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+import type { Specialty } from '../data/specialties';
+
+interface Props {
+  specialty: Specialty;
+}
+
+const { specialty } = Astro.props;
+const title = `${specialty.name} en Barquisimeto | UMEIB`;
+---
+
+<Layout title={title}>
+  <Navbar />
+  <main id="main-content">
+    <slot />
+  </main>
+  <ContactFooter />
+  <WhatsAppButton />
+</Layout>

@@ -1,0 +1,32 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import ContactFooter from '../../components/ContactFooter.astro';
+import WhatsAppButton from '../../components/WhatsAppButton.astro';
+import BlogGrid from '../../components/BlogGrid.astro';
+import { blogPosts } from '../../data/blog';
+---
+
+<Layout title="Blog | UMEIB">
+  <Navbar />
+
+  <main id="main-content" class="pt-16">
+    <section class="bg-gradient-to-br from-[#102A43] via-[#102A43] to-[#12A0A5] py-20 sm:py-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-2xl">
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight tracking-tight animate-fade-in-up">Blog de Salud</h1>
+          <p class="text-lg text-white/80 mt-4 animate-fade-in-up delay-100">Artículos, consejos y guías para cuidar tu salud y la de tu familia.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 sm:py-20 lg:py-24 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <BlogGrid posts={blogPosts} />
+      </div>
+    </section>
+  </main>
+
+  <ContactFooter />
+  <WhatsAppButton />
+</Layout>

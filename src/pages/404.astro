@@ -1,0 +1,52 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import ContactFooter from '../components/ContactFooter.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+import { specialties } from '../data/specialties';
+---
+
+<Layout title="Página no encontrada | UMEIB">
+  <Navbar />
+
+  <main id="main-content" class="pt-16 min-h-[80vh] flex items-center">
+    <section class="w-full py-20 sm:py-28">
+      <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <span class="text-8xl sm:text-9xl font-extrabold text-primary/20 select-none">404</span>
+        <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-text-heading leading-tight tracking-tight -mt-4">
+          Página no encontrada
+        </h1>
+        <p class="mt-4 text-base sm:text-lg text-text-heading/75 max-w-md mx-auto">
+          La página que buscas no existe o ha sido movida. Revisa nuestras especialidades o vuelve al inicio.
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10">
+          <a href="/" class="inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white font-semibold px-6 py-3 rounded-full transition-colors">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+            Volver al Inicio
+          </a>
+          <a href="/#especialidades" class="inline-flex items-center gap-2 border-2 border-gray-200 hover:border-primary text-text-heading/85 hover:text-primary font-semibold px-6 py-3 rounded-full transition-colors">
+            Ver Especialidades
+          </a>
+        </div>
+
+        <div class="mt-16">
+          <h2 class="text-sm font-bold text-text-heading/60 uppercase tracking-wider mb-4">Especialidades</h2>
+          <div class="flex flex-wrap justify-center gap-2">
+            {specialties.slice(0, 8).map((s) => (
+              <a
+                href={`/especialidades/${s.slug}`}
+                class="text-sm text-primary hover:text-primary-dark bg-primary/5 hover:bg-primary/10 px-3 py-1.5 rounded-full transition-colors"
+              >
+                {s.name}
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <ContactFooter />
+  <WhatsAppButton />
+</Layout>
