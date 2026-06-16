@@ -26,8 +26,8 @@ const { specialty } = Astro.props;
 
         {getDoctorsBySpecialty(specialty.slug).slice(0, 2).map((doctor, i) => (
           <div
-            class={`absolute right-0 top-1/2 -translate-y-1/2 w-[50vw] h-[50vw] max-w-[600px] max-h-[600px] animate-fade-in`}
-            style={`margin-right: ${i > 0 ? '-4rem' : '0'}; margin-top: ${i > 0 ? '3rem' : '0'}; mask-image: radial-gradient(ellipse at 70% 50%, black 55%, transparent 82%); -webkit-mask-image: radial-gradient(ellipse at 70% 50%, black 55%, transparent 82%);`}
+            class="absolute -right-10 top-[58%] -translate-y-1/2 w-[60vw] h-[60vw] max-w-[800px] max-h-[800px] animate-fade-in"
+            style={`mask-image: radial-gradient(ellipse at 50% 50%, black 45%, transparent 78%); -webkit-mask-image: radial-gradient(ellipse at 50% 50%, black 45%, transparent 78%); ${i > 0 ? 'margin-top: 4rem; margin-right: -5rem;' : ''}`}
           >
             <img
               src={doctor.photo}
