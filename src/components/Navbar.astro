@@ -12,11 +12,11 @@ import { specialties } from '../data/specialties';
       <a href="/" class="text-sm font-medium text-text-heading/85 hover:text-primary transition-colors">Inicio</a>
 
       <div class="relative group" data-dropdown>
-        <button class="flex items-center gap-1 text-sm font-medium text-text-heading/85 hover:text-primary transition-colors cursor-default" aria-haspopup="true" aria-expanded="false" data-dropdown-button>
+        <button class="flex items-center gap-1 text-sm font-medium text-text-heading/85 hover:text-primary transition-colors cursor-pointer" aria-haspopup="true" aria-expanded="false" data-dropdown-button>
           Especialidades
           <svg class="w-3.5 h-3.5 mt-0.5 transition-transform duration-200" data-dropdown-arrow viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
         </button>
-        <div class="absolute top-full right-0 pt-2 w-[500px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 translate-y-2 group-hover:translate-y-0" data-dropdown-menu role="menu" aria-label="Especialidades">
+        <div class="absolute top-full right-0 pt-2 w-[500px] max-w-[90vw] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 translate-y-2 group-hover:translate-y-0" data-dropdown-menu role="menu" aria-label="Especialidades">
           <div class="bg-white rounded-2xl shadow-xl border border-gray-100">
             <div class="grid grid-cols-2 gap-1 p-3 max-h-[420px] overflow-y-auto">
             {specialties.map((s) => (
@@ -44,10 +44,10 @@ import { specialties } from '../data/specialties';
     </div>
 
     <button id="menu-btn" class="md:hidden cursor-pointer p-2" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu" data-menu-button>
-      <svg class="w-6 h-6 text-text-heading" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-        <path d="M4 6h16" data-menu-line-1/>
-        <path d="M4 12h16" data-menu-line-2/>
-        <path d="M4 18h16" data-menu-line-3/>
+      <svg class="w-6 h-6 text-text-heading transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" data-menu-icon>
+        <path d="M4 6h16" class="transition-all duration-300 origin-center" data-menu-line-1/>
+        <path d="M4 12h16" class="transition-all duration-300" data-menu-line-2/>
+        <path d="M4 18h16" class="transition-all duration-300 origin-center" data-menu-line-3/>
       </svg>
     </button>
   </nav>
@@ -140,6 +140,16 @@ import { specialties } from '../data/specialties';
       menuBtn.setAttribute('aria-expanded', 'true');
       menuBtn.setAttribute('aria-label', 'Cerrar menú');
       document.body.style.overflow = 'hidden';
+      // Hamburger → X
+      const icon = document.querySelector('[data-menu-icon]');
+      const l1 = icon?.querySelector('[data-menu-line-1]');
+      const l2 = icon?.querySelector('[data-menu-line-2]');
+      const l3 = icon?.querySelector('[data-menu-line-3]');
+      if (l1 && l2 && l3) {
+        l1.setAttribute('d', 'M4 4l16 16');
+        l2.setAttribute('opacity', '0');
+        l3.setAttribute('d', 'M4 20l16-16');
+      }
     }
 
     function closeMenu() {
@@ -149,6 +159,16 @@ import { specialties } from '../data/specialties';
       menuBtn.setAttribute('aria-expanded', 'false');
       menuBtn.setAttribute('aria-label', 'Abrir menú');
       document.body.style.overflow = '';
+      // X → Hamburger
+      const icon = document.querySelector('[data-menu-icon]');
+      const l1 = icon?.querySelector('[data-menu-line-1]');
+      const l2 = icon?.querySelector('[data-menu-line-2]');
+      const l3 = icon?.querySelector('[data-menu-line-3]');
+      if (l1 && l2 && l3) {
+        l1.setAttribute('d', 'M4 6h16');
+        l2.setAttribute('opacity', '1');
+        l3.setAttribute('d', 'M4 18h16');
+      }
     }
 
     menuBtn?.addEventListener('click', () => {

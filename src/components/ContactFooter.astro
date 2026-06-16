@@ -50,8 +50,8 @@ import { globalContact } from '../libs/utils';
 
         <a href={`mailto:${globalContact.email}`} class="flex items-center gap-3 mb-6">
           <svg class="w-5 h-5 text-primary shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          <span class="text-sm text-text-heading/85">contacto@umeib.com</span>
-        </div>
+          <span class="text-sm text-text-heading/85">{globalContact.email}</span>
+        </a>
 
         <h4 class="text-xs font-bold text-text-heading uppercase tracking-wider mb-3">Síguenos</h4>
         <div class="flex items-center gap-3">

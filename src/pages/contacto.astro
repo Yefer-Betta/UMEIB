@@ -4,6 +4,7 @@ import Navbar from '../components/Navbar.astro';
 import ContactFooter from '../components/ContactFooter.astro';
 import WhatsAppButton from '../components/WhatsAppButton.astro';
 import CTASection from '../components/CTASection.astro';
+import { globalContact } from '../libs/utils';
 ---
 
 <Layout title="Contacto | UMEIB">
@@ -53,7 +54,7 @@ import CTASection from '../components/CTASection.astro';
                 </div>
                 <div>
                   <h3 class="font-semibold text-text-heading mb-1">Correo Electrónico</h3>
-                  <p class="text-text-heading/75 text-sm">contacto@umeib.com</p>
+                  <p class="text-text-heading/75 text-sm">{globalContact.email}</p>
                 </div>
               </div>
 
@@ -86,10 +87,10 @@ import CTASection from '../components/CTASection.astro';
 
           <div>
             <h2 class="text-2xl font-bold text-text-heading mb-8">Envíanos un mensaje</h2>
-            <form action="https://formsubmit.co/contacto@umeib.com" method="POST" class="space-y-5">
+            <form action={`https://formsubmit.co/${globalContact.email}`} method="POST" class="space-y-5">
               <input type="hidden" name="_subject" value="Nuevo mensaje desde UMEIB.ve" />
               <input type="hidden" name="_template" value="table" />
-              <input type="text" name="_honey" class="hidden" />
+              <input type="text" name="_honey" class="hidden" autocomplete="off" tabindex="-1" />
               <div>
                 <label for="name" class="block text-sm font-medium text-text-heading/85 mb-1.5">Nombre completo</label>
                 <input type="text" id="name" name="name" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all duration-200 text-sm" placeholder="Tu nombre" />
@@ -113,18 +114,18 @@ import CTASection from '../components/CTASection.astro';
               </button>
             </form>
           </div>
+        </div>
 
-          <div class="h-[300px] sm:h-[400px] rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
-            <iframe
-              src="https://www.openstreetmap.org/export/embed.html?bbox=-69.3483%2C10.0636%2C-69.3383%2C10.0736&amp;layer=mapnik&amp;marker=10.0686%2C-69.3433"
-              width="100%"
-              height="100%"
-              style="border:0"
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              title="Ubicación de UMEIB en Barquisimeto"
-            ></iframe>
-          </div>
+        <div class="mt-12 h-[300px] sm:h-[400px] rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
+          <iframe
+            src="https://www.openstreetmap.org/export/embed.html?bbox=-69.3483%2C10.0636%2C-69.3383%2C10.0736&amp;layer=mapnik&amp;marker=10.0686%2C-69.3433"
+            width="100%"
+            height="100%"
+            style="border:0"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Ubicación de UMEIB en Barquisimeto"
+          ></iframe>
         </div>
       </div>
     </section>

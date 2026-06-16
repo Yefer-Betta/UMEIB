@@ -3,7 +3,7 @@ import SpecialtyLayout from '../../layouts/SpecialtyLayout.astro';
 import SpecialtyHero from '../../components/SpecialtyHero.astro';
 import SpecialtyContent from '../../components/SpecialtyContent.astro';
 import CTASection from '../../components/CTASection.astro';
-import CasheaBanner from '../../components/CasheaBanner.astro';
+
 import { getSpecialtyBySlug, getSlugs } from '../../data/specialties';
 
 export async function getStaticPaths() {
@@ -19,6 +19,6 @@ const { specialty } = Astro.props;
 <SpecialtyLayout specialty={specialty}>
   <SpecialtyHero specialty={specialty} />
   <SpecialtyContent specialty={specialty} />
-  <CasheaBanner />
+
   <CTASection specialty={specialty} subtitle={`Déjanos tu mensaje y agenda tu consulta de ${specialty.name.toLowerCase()} en minutos.`} />
 </SpecialtyLayout>

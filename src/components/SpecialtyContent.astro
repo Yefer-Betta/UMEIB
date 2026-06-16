@@ -41,26 +41,6 @@ const { specialty } = Astro.props;
             ))}
           </ul>
 
-          {
-            getDoctorsBySpecialty(specialty.slug).length > 0 && (
-              <div class="mt-8 pt-6 border-t border-gray-200">
-                <h4 class="text-sm font-bold text-text-heading uppercase tracking-wider mb-4">Nuestro equipo</h4>
-                <div class="space-y-4">
-                  {getDoctorsBySpecialty(specialty.slug).map(doctor => (
-                    <div class="flex items-center gap-3">
-                      <div>
-                        <p class="font-medium text-text-heading">{doctor.name}</p>
-                        {doctor.contact.phone && (
-                          <a href={`tel:${doctor.contact.phone}`} class="text-sm text-primary hover:underline">{doctor.contact.phone}</a>
-                        )}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )
-          }
-
           <div class="mt-8 pt-6 border-t border-gray-200">
             <p class="text-xs text-text-heading/60 mb-3">Compartir esta especialidad</p>
             <div class="flex items-center gap-2">

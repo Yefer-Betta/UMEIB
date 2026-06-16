@@ -163,7 +163,7 @@ Desde tratamientos láser para hongos hasta la solución definitiva para uñas e
   },
   {
     id: 9,
-    name: "Luisa Delgado",
+    name: "Dra. Luisa Delgado",
     photo: "/images/doctors/luisa-delgado.png",
     bio: `La prevención y la atención oportuna son las claves para una vida plena. La Dra. Luisa Delgado, especialista en Cirugía General y Laparoscópica, te ofrece una atención médica integral, segura y de alta calidad para cuidar de ti y de los tuyos.
 
